@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1zkG5-ZSUJGJaP0_DeqW1Mrw0fEFfMj2n
 """
 
-!pip install sentence_transformers
+pip install sentence_transformers
 !pip install streamlit
 
 import streamlit as st
