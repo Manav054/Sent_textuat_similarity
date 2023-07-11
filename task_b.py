@@ -12,10 +12,11 @@ import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+from streamlit.experimental import async
 
 model = SentenceTransformer("bert-base-nli-mean-tokens")
 
-@st.experimental_async
+@async
 def calculate_similarity(text1, text2) :
   sent1 = model.encode(text1).reshape(1, -1)
   sent2 = model.encode(text2).reshape(1, -1)
@@ -35,7 +36,7 @@ def main() :
   similarity = ""
 
   if st.button("Calculate similarity") :
-    similarity = st.experimental_async(calculate_similarity)(text1, text2)
+    similarity = async.run(calculate_similarity)(text1, text2)
   st.success("Similarity is {}".format(similarity))
 
 if __name__ == '__main__' :
