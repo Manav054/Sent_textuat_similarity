@@ -15,6 +15,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 model = SentenceTransformer("bert-base-nli-mean-tokens")
 
+@st.experimental_async
 def calculate_similarity(text1, text2) :
   sent1 = model.encode(text1).reshape(1, -1)
   sent2 = model.encode(text2).reshape(1, -1)
@@ -34,9 +35,8 @@ def main() :
   similarity = ""
 
   if st.button("Calculate similarity") :
-    similarity = calculate_similarity(text1, text2)
+    similarity = st.experimental_async(calculate_similarity)(text1, text2)
   st.success("Similarity is {}".format(similarity))
-  st.experimental_rerun()
 
 if __name__ == '__main__' :
   main()
