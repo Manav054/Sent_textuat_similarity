@@ -9,11 +9,9 @@ Original file is located at
 import spacy.cli 
 spacy.cli.download("en_core_web_lg")
 import streamlit as st
-import pandas as pd
 import spacy
 
 nlp = spacy.load("en_core_web_lg")
-text_data = pd.read_csv("/content/Precily_Text_Similarity.csv")
 
 def calculate_similarity(text1, text2) :
   sent1 = nlp(text1)
