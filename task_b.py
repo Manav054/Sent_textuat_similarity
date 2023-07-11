@@ -16,13 +16,13 @@ import asyncio
 
 model = SentenceTransformer("bert-base-nli-mean-tokens")
 
-async def calculate_similarity(text1, text2) :
+def calculate_similarity(text1, text2) :
   sent1 = model.encode(text1).reshape(1, -1)
   sent2 = model.encode(text2).reshape(1, -1)
   value = cosine_similarity(sent1, sent2)[0]
   return round(value[0], 4)
 
-def main() :
+async def main() :
   st.title("Semantic Similarity Tester")
   html_temp = """
   <div style = "backgroud-color : tomato ; padding : 10px">
