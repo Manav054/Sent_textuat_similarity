@@ -36,6 +36,7 @@ def main() :
   if st.button("Calculate similarity") :
     similarity = calculate_similarity(text1, text2)
   st.success("Similarity is {}".format(similarity))
+  st.experimental_rerun()
 
 if __name__ == '__main__' :
   main()
