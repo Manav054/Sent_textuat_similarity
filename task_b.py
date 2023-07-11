@@ -36,6 +36,6 @@ text2 = st.text_input("Text2", "Type Here")
 similarity = ""
 
 if st.button("Calculate similarity") :
-    similarity = asyncio.run(calculate_similarity)(text1, text2)
+    similarity = calculate_similarity(text1, text2)
 st.success("Similarity is {}".format(similarity))
 
