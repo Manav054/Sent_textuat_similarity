@@ -36,4 +36,4 @@ def main() :
     st.success("Similarity is {}".format(similarity))
 
 if "__name__" == "__main__" :
-main()
+    main()
